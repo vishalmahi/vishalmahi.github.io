@@ -51,28 +51,65 @@
 					color:white;
 					}
 	
+.sidenav {
+			  height: 100%;
+			  width: 0;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color: #111;
+			  overflow-x: hidden;
+			  transition: 0.5s;
+			  padding-top: 60px;
+			  text-align:center;
+         }
+
+.sidenav a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 25px;
+			  color: #818181;
+			  display: block;
+			  transition: 0.3s;
+
+			}
+
+.sidenav a:hover{
+				  color: #f1f1f1;
+				}
+
+.sidenav .closebtn {
+					  position: absolute;
+					  top: 0;
+					  right: 25px;
+					  font-size: 36px;
+					  margin-left: 50px;
+					}
+
+@media screen and (max-height: 450px) {
+											  .sidenav {padding-top: 15px;}
+											  .sidenav a {font-size: 18px;}
+											}
+	
 	</style>
    </head>
   
 	<body>
 		
-			<div class="pos-f-t">
-				<div class="collapse" id="navbarToggleExternalContent">
-				<div class="bg-dark p-4">
-				  <h4 class="text-white"><a class="home" href="index.html">Home</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="aboutme.html">About Me</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="resume.html">Resume</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="work.html">My Work</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="contact.html">Contact Me</a></h4>
-				  <img id="image" src="IMG-20190930-WA0049.jpg">
-				</div>
-			  </div>
-			  <nav class="navbar navbar-dark bg-dark">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#E2BE18; font-size:28px;"></i></span>
-				</button>	
-			  </nav>
+			<div id="mySidenav" class="sidenav">
+				<h4 class="text-white"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			    <h4 class="text-white"><a href="index.html">Home</a></h4>
+				<h4 class="text-white"><a href="aboutme.html">About Me</a></h4>
+				<h4 class="text-white"><a href="resume.html">Resume</a></h4>
+				<h4 class="text-white"><a href="work.html">My work</a></h4>
+			    <h4 class="text-white"><a href="contact.html">Contact Me</a></h4>
+				<img id="image" src="IMG-20190930-WA0049.jpg">
 			</div>
+
+
+			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
 			 
 			
 			<div class="jumbotron jumbotron-fluid">
@@ -96,6 +133,13 @@
 									
 									
 									});	
+			function openNav() {
+									  document.getElementById("mySidenav").style.width = "100%";
+									}
+
+									function closeNav() {
+									  document.getElementById("mySidenav").style.width = "0";
+									}						
 				
 		</script>	
 	</body>
