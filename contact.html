@@ -31,28 +31,6 @@
 			color:#FFFF00;
 			}
 	
-	.home{
-			color:white;
-			border:1px solid #343A40;
-			width:130px;
-			float:left;
-			}
-	#image{
-			width:10%;
-			height:20%;
-			float:right;
-			position:relative;
-			top:-110px;
-			left:-300px;
-			border:2px solid white;
-			border-radius:10%;
-			
-			}
-	.highlighted{
-					background-color:yellow;
-					text-decoration:none;
-					color:white;
-					}
 	.email{
 			color:white;
 			border:1px solid white;
@@ -91,6 +69,59 @@
 			float:left;
 			font-size:150%;
 			}	
+	
+	#image{
+			width:10%;
+			height:20%;
+			float:right;
+			border:2px solid white;
+			border-radius:10%;
+			position:relative;
+			top:-230px;
+			left:-100px;
+			
+			}
+			
+	.highlighted{
+					background-color:yellow;
+					text-decoration:none;
+					color:white;
+					}
+	
+.sidenav {
+			  height: 100%;
+			  width: 0;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color: #111;
+			  overflow-x: hidden;
+			  transition: 0.5s;
+			  padding-top: 60px;
+         }
+
+.sidenav a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 25px;
+			  color: #818181;
+			  display: block;
+			  transition: 0.3s;
+
+			}
+.sidenav .closebtn {
+					  position: absolute;
+					  top: 0;
+					  right: 25px;
+					  font-size: 36px;
+					  margin-left: 50px;
+					}
+
+@media screen and (max-height: 450px) {
+											  .sidenav {padding-top: 15px;}
+											  .sidenav a {font-size: 18px;}
+											}	
 
 	
 	</style>
@@ -98,23 +129,18 @@
   
 	<body>
 		
-			<div class="pos-f-t">
-				<div class="collapse" id="navbarToggleExternalContent">
-				<div class="bg-dark p-4">
-				  <h4 class="text-white"><a class="home" href="index.html">Home</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="aboutme.html">About Me</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="resume.html">Resume</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="work.html">My Work</a></h4>
-				  <br><h4 class="text-white"><a class="home" href="contact.html">Contact Me</a></h4>
-				  <img id="image" src="IMG-20190930-WA0049.jpg">
-				</div>
-			  </div>
-			  <nav class="navbar navbar-dark bg-dark">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#E2BE18; font-size:28px;"></i></span>
-				</button>	
-			  </nav>
+			<div id="mySidenav" class="sidenav">
+				<h4 class="text-white"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			    <h4 class="text-white"><a href="index.html">Home</a></h4>
+				<h4 class="text-white"><a href="aboutme.html">About Me</a></h4>
+				<h4 class="text-white"><a href="resume.html">Resume</a></h4>
+				<h4 class="text-white"><a href="work.html">My work</a></h4>
+			    <h4 class="text-white"><a href="contact.html">Contact Me</a></h4>
+				<img id="image" src="IMG-20190930-WA0049.jpg">
 			</div>
+
+
+			<span style="font-size:30px;cursor:pointer;color:#E2BE18;" onclick="openNav()">&#9776;</span>
 			 
 	<h1 class="contact">Contact<span class="me"> Me</h1></span>
 	<h5 class="contact"> Here are my <span class="me">contact details</span>........</h5> 
@@ -130,13 +156,21 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script type="text/javascript">
-			 $(".home").hover(function(){
-										$(this).addClass("highlighted");
+			 function openNav() {
+									  document.getElementById("mySidenav").style.width = "100%";
+									}
+
+									function closeNav() {
+									  document.getElementById("mySidenav").style.width = "0";
+									}
+									
+		 $(".sidenav a").hover(function(){
+											$(this).addClass("highlighted");
 									},function(){
 													$(this).removeClass("highlighted");
 									
 									
-									});
+									});							
 			$(".address").hover(function(){
 										$(this).addClass("highlighted");
 									},function(){
